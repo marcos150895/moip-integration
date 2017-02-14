@@ -1,0 +1,207 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+<dom-module id="moip-items">
+    <template>
+    <style>
+     .list {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .list a {
+            display: block;
+            line-height: 40px;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #7c7c7c;
+        }
+        .list a.active {
+            color: black;
+            font-weight: bold;
+        }
+        .profileBar {
+            margin-bottom: 40px;
+        }
+        .profilePic {
+            border-radius: 50% 50%;
+        }
+        .profileName {
+            @apply(--layout-flex);
+            margin-left: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #0a3142;
+        }
+        [icon=settings] {
+            width: 35px;
+            height: 35px;
+            color: #0a3142;
+        }
+        /**
+        * Desktop small, tablet
+        */
+        @media (max-width: 1200px) {
+            .logo {
+            width: 89px;
+            height: 17px;
+            }
+            #mainToolbar {
+            height: 64px;
+            }
+            shrine-detail {
+            height: auto;
+            }
+        }
+        /**
+        * Phone
+        */
+        @media (max-width: 400px) {
+            .leftItem [icon=menu] {
+            display: block;
+            }
+            paper-tabs {
+            display: none;
+            }
+        }
+        
+      .pic {
+        width: 100%;
+        height: 50%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        transition: opacity 0.5s;
+        margin-top: 40px;
+      }
+      .link {
+        transition: opacity 0.5s;
+        font-family: 'Abril Fatface', cursive;
+        font-size: 2em;
+        color: #0a3142;
+      }
+      .price {
+        
+        top: 20px;
+        right: 20px;
+        font-size: 1em;
+        color: #111;
+        font-weight: bold;
+      }
+      .icons {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        transition: opacity 0.5s;
+      }
+      iron-icon {
+        width: 20px;
+        height: 20px;
+        color: #666;
+        margin: 5px;
+      }
+      
+      .grid {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-center);
+        @apply(--layout-wrap);
+        margin-top: 10px;
+      }
+      .grid .item{
+            transition: opacity 0.5s;
+            font-family: 'Abril Fatface', cursive;
+            font-size: 1.0em;
+            color: #0a3142;
+            margin: auto;
+            text-align: center;
+      }
+      .grid .item a{
+            text-decoration: none;
+             color: #0a3142;
+      }
+      .grid > .item {
+        -webkit-flex: 1 calc(33% - 20px);
+        flex: 1 calc(33% - 20px);
+        max-width: calc(33% - 20px);
+        height: 30vmax;
+        min-height: 250px;
+        margin: 10px;
+        text-decoration: none;
+        background-color: white;
+      }
+      /**
+       * Desktop small, tablet
+       */
+      @media (max-width: 1200px) {
+        .grid {
+          padding-left: 10px;
+          padding-right: 10px;
+          font-family: 'Abril Fatface', cursive;
+            font-size: 2em;
+            color: #0a3142;
+        }
+        .grid > .item {
+          -webkit-flex: 1 calc(50% - 20px);
+          flex: 1 calc(50% - 20px);
+          max-width: calc(50% - 20px);
+          margin: 10px;
+          text-decoration: none;
+          background-color: white;
+        }
+      }
+      /**
+       * Phone
+       */
+      @media (max-width: 400px) {
+        .grid {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+        .grid > .item {
+          -webkit-flex: 1 calc(100% - 10px);
+          flex: 1 calc(1000% - 10px);
+          max-width: calc(100% - 10px);
+          margin: 5px;
+          text-decoration: none;
+          background-color: white;
+        }
+      }
+    </style>
+    <div class="grid" style="background-color: #f3f3f3">
+        <div class="item">
+            <a href="#" class="item" aria-label$="">
+                <div class="pic" style="background-image: url('https://www.gstatic.com/angular/material-adaptive/shrine/backpack.png');"></div>
+                    <h2 class="link">Mochila</h2>
+                    <span class="price">90,00</span>
+            </a>
+        </div>
+        <div class="item">
+            <a href="#" class="item" aria-label$="">
+                <div class="pic" style="background-image: url('https://www.gstatic.com/angular/material-adaptive/shrine/radio.png');"></div>
+                    <h2 class="link">Rádio </h2>
+                    <span class="price">99,00</span>
+            </a>
+        </div>
+        <div class="item">
+            <a href="#" class="item" aria-label$="">
+                <div class="pic" style="background-image: url('https://www.gstatic.com/angular/material-adaptive/shrine/clock.png');"></div>
+                    <h2 class="link">Relogio</h2>
+                    <span class="price">50,00</span>
+            </a>
+        </div>
+    </div>
+  </template>
+
+    <script>
+        Polymer({
+
+            is: 'moip-items',
+
+            properties: {
+                prop1: {
+                    type: String,
+                    value: 'moip-integration',
+                },
+            },
+
+        });
+    </script>
+</dom-module>

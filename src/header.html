@@ -19,182 +19,120 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="../bower_components/app-layout/demo/sample-content.html">
+<link rel="import" href="items.html">
 
 <dom-module id="header-shop">
 
     <template>
 
-    <style>
-      :host {
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      }
-      app-header {
-        background-color: rgba(255, 255, 255, 0.95);
-        --app-header-shadow: {
-          box-shadow: inset 0px 5px 6px -3px rgba(0, 0, 0, 0.2);
-          height: 10px;
-          bottom: -10px;
-        };
-      }
-      app-header:not([shadow]) {
-        border-bottom: 1px solid #ddd;
-      }
-      app-drawer {
-        --app-drawer-content-container: {
-          background-color: #f3f3f3;
-        };
-      }
-      #mainToolbar {
-        height: 110px;
-      }
-      paper-icon-button {
-        color: #000;
-        --paper-icon-button-ink-color: #D32F2F;
-      }
-      .navItem {
-        @apply(--layout-self-start);
-        margin-top: 13px;
-        width: 88px;
-      }
-      .spacer {
-        @apply(--layout);
-        @apply(--layout-flex-auto);
-        @apply(--layout-center-center);
-      }
-      .logo {
-        width: 120px;
-        height: 40px;
-        background-size: 100% 100%;
-      }
-      .leftItem [icon] {
-        display: none;
-      }
-      shrine-detail {
-        height: calc(100vh - 65px);
-      }
-      :host([page=detail]) #mainToolbar {
-        height: 64px;
-      }
-      :host([page=detail]) paper-tabs {
-        display: none;
-      }
-      :host([page=detail]) .leftItem [icon=arrow-back] {
-        display: block;
-      }
-      :host([page=detail]) .leftItem [icon=menu] {
-        display: none;
-      }
-      paper-tabs {
-        --paper-tabs-selection-bar-color: #D32F2F;
-        margin-left: -55px;
-        color: #212121;
-        font-size: 13px;
-      }
-      paper-tab {
-        @apply(--layout-flex-none);
-        --paper-tab-ink: #D32F2F;
-      }
-      paper-tab a {
-        @apply(--layout-horizontal);
-        @apply(--layout-center-center);
-        text-decoration: none;
-        text-transform: uppercase;
-        color: #D32F2F;
-        font-weight: 500;
-        padding: 0 20px;
-        height: 100%;
-      }
-      .list {
-        margin-left: 20px;
-        margin-right: 20px;
-      }
-      .list a {
-        display: block;
-        line-height: 40px;
-        text-decoration: none;
-        text-transform: uppercase;
-        color: #7c7c7c;
-      }
-      .list a.active {
-        color: black;
-        font-weight: bold;
-      }
-      .profileBar {
-        margin-bottom: 40px;
-      }
-      .profilePic {
-        border-radius: 50% 50%;
-      }
-      .profileName {
-        @apply(--layout-flex);
-        margin-left: 20px;
-        font-size: 14px;
-        font-weight: 500;
-        color: #0a3142;
-      }
-      [icon=settings] {
-        width: 35px;
-        height: 35px;
-        color: #0a3142;
-      }
-      /**
-       * Desktop small, tablet
-       */
-      @media (max-width: 1200px) {
-        .logo {
-          width: 89px;
-          height: 17px;
+        <style>
+        :host {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        app-header {
+            background-color: rgba(255, 255, 255, 0.95);
+            --app-header-shadow: {
+            box-shadow: inset 0px 5px 6px -3px rgba(0, 0, 0, 0.2);
+            height: 10px;
+            bottom: -10px;
+            };
+        }
+        app-header:not([shadow]) {
+            border-bottom: 1px solid #ddd;
+        }
+        app-drawer {
+            --app-drawer-content-container: {
+            background-color: #f4f4f4;
+            };
         }
         #mainToolbar {
-          height: 64px;
+            height: 110px;
+        }
+        paper-icon-button {
+            color: #000;
+            --paper-icon-button-ink-color: #D32F2F;
+        }
+        .navItem {
+            @apply(--layout-self-start);
+            margin-top: 13px;
+            width: 88px;
+        }
+        .spacer {
+            @apply(--layout);
+            @apply(--layout-flex-auto);
+            @apply(--layout-center-center);
+        }
+        .logo {
+            width: 120px;
+            height: 40px;
+            background-size: 100% 100%;
+        }
+        .leftItem [icon] {
+            display: none;
         }
         shrine-detail {
-          height: auto;
+            height: calc(100vh - 65px);
         }
-      }
-      /**
-       * Phone
-       */
-      @media (max-width: 400px) {
-        .leftItem [icon=menu] {
-          display: block;
+        :host([page=detail]) #mainToolbar {
+            height: 64px;
+        }
+        :host([page=detail]) paper-tabs {
+            display: none;
+        }
+        :host([page=detail]) .leftItem [icon=arrow-back] {
+            display: block;
+        }
+        :host([page=detail]) .leftItem [icon=menu] {
+            display: none;
         }
         paper-tabs {
-          display: none;
+            --paper-tabs-selection-bar-color: #D32F2F;
+            margin-left: -55px;
+            color: #212121;
+            font-size: 13px;
         }
-      }
-    </style>
+        paper-tab {
+            @apply(--layout-flex-none);
+            --paper-tab-ink: #D32F2F;
+        }
+        paper-tab a {
+            @apply(--layout-horizontal);
+            @apply(--layout-center-center);
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #D32F2F;
+            font-weight: 500;
+            padding: 0 20px;
+            height: 100%;
+        }
 
+        </style>
 
-    </style>
     <app-drawer-layout>
         <app-header-layout>
             <app-header reveals effects="waterfall">
                 <app-toolbar id="mainToolbar">
                     <div class="navItem leftItem">
-                    <paper-icon-button icon="menu" drawer-toggle alt="Toogle navigation menu"></paper-icon-button>
-                    <a href="#[[sectionData.section]]" tabindex="-1"><paper-icon-button icon="arrow-back"  alt="Back to the home"></paper-icon-button></a>
+                        <paper-icon-button icon="menu" drawer-toggle alt="Toogle navigation menu"></paper-icon-button>
+                        <a href="#[[sectionData.section]]" tabindex="-1"><paper-icon-button icon="arrow-back"  alt="Back to the home"></paper-icon-button></a>
                     </div>
                     <div class="spacer">
-                    <img src="//app-layout-assets.appspot.com/assets/shrine/shrine_logo.svg" class="logo" alt="SHRINE">
+                        <img src="//app-layout-assets.appspot.com/assets/shrine/shrine_logo.svg" class="logo" alt="SHRINE">
                     </div>
                     <div class="navItem">
-                    <paper-icon-button icon="shopping-cart" aria-label="Shopping cart"></paper-icon-button>
-                    <paper-icon-button icon="more-vert" aria-label="More options"></paper-icon-button>
+                        <a href="/src/cart.html" tabindex="-1">
+                            <paper-icon-button icon="shopping-cart" aria-label="Shopping cart"></paper-icon-button>
+                        </a>
+                        <paper-icon-button icon="more-vert" aria-label="More options"></paper-icon-button>
                     </div>
                 </app-toolbar>
             </app-header>
         </app-header-layout>
-                <paper-tabs selected="0" scrollable>
-                    <template is="dom-repeat" items="{{sections}}" >
-                        <paper-tab>
-                            <a href="#{{item.nome}}">{{item.nome}}</a>
-                        </paper-tab>
-                    </template>
-    </paper-tabs>
+        
     </app-drawer-layout>
-    </template>
 
+
+    </template>
     <script>
         Polymer({
 
@@ -209,7 +147,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             items: {
                 type: Array
-            }
+            },
 
         });
     </script>

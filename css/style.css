@@ -1,0 +1,98 @@
+   :host {
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  
+  app-header {
+      background-color: rgba(255, 255, 255, 0.95);
+      --app-header-shadow: {
+          box-shadow: inset 0px 5px 6px -3px rgba(0, 0, 0, 0.2);
+          height: 10px;
+          bottom: -10px;
+      }
+      ;
+  }
+  
+  app-header:not([shadow]) {
+      border-bottom: 1px solid #ddd;
+  }
+  
+  app-drawer {
+      --app-drawer-content-container: {
+          background-color: #f4f4f4;
+      }
+      ;
+  }
+  
+  #mainToolbar {
+      height: 110px;
+  }
+  
+  paper-icon-button {
+      color: #000;
+      --paper-icon-button-ink-color: #D32F2F;
+  }
+  
+  .navItem {
+      @apply(--layout-self-start);
+      margin-top: 13px;
+      width: 88px;
+  }
+  
+  .spacer {
+      @apply(--layout);
+      @apply(--layout-flex-auto);
+      @apply(--layout-center-center);
+  }
+  
+  .logo {
+      width: 120px;
+      height: 40px;
+      background-size: 100% 100%;
+  }
+  
+  .leftItem [icon] {
+      display: none;
+  }
+  
+  shrine-detail {
+      height: calc(100vh - 65px);
+  }
+  
+   :host([page=detail]) #mainToolbar {
+      height: 64px;
+  }
+  
+   :host([page=detail]) paper-tabs {
+      display: none;
+  }
+  
+   :host([page=detail]) .leftItem [icon=arrow-back] {
+      display: block;
+  }
+  
+   :host([page=detail]) .leftItem [icon=menu] {
+      display: none;
+  }
+  
+  paper-tabs {
+      --paper-tabs-selection-bar-color: #D32F2F;
+      margin-left: -55px;
+      color: #212121;
+      font-size: 13px;
+  }
+  
+  paper-tab {
+      @apply(--layout-flex-none);
+      --paper-tab-ink: #D32F2F;
+  }
+  
+  paper-tab a {
+      @apply(--layout-horizontal);
+      @apply(--layout-center-center);
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #D32F2F;
+      font-weight: 500;
+      padding: 0 20px;
+      height: 100%;
+  }

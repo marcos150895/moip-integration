@@ -11,11 +11,13 @@
     <link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
     <link rel="import" href="moip-integration.html">
     <link rel="import" href="src/header.html">
+    <link rel="import" href="src/items.html">
 </head>
 
 <body>
     <iron-ajax url="data/items.json" auto last-response="{{items}}"></iron-ajax>
     <header-shop items="[[items]]"></header-shop>
+    <moip-items></moip-items>
 </body>
 
 </html>
