@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
     <title>moip-integration</title>
-
-    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-
     <link rel="import" href="bower_components/iron-component-page/iron-component-page.html">
+    <link rel="import" href="bower_components/iron-component-page/iron-component-page.html">
+    <link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
+    <link rel="import" href="moip-integration.html">
+    <link rel="import" href="src/header.html">
 </head>
 
 <body>
-    <iron-component-page src="moip-integration.html"></iron-component-page>
+    <iron-ajax url="data/items.json" auto last-response="{{items}}"></iron-ajax>
+    <header-shop items="[[items]]"></header-shop>
 </body>
 
 </html>
