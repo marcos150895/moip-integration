@@ -1,0 +1,23 @@
+{
+  "name": "moip-integration",
+  "version": "1.0.0",
+  "description": "integration api restfull moip payments ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/marcos150895/moip-integration"
+  },
+  "keywords": [
+    "restfull",
+    "integration",
+    "e-commerce"
+  ],
+  "author": "Marcos Santana Santos",
+  "license": "MIT",
+  "dependencies": {
+    "polymer": "^0.5.0"
+  }
+}

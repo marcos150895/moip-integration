@@ -1,0 +1,34 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<!--
+`moip-integration`
+
+
+@demo demo/index.html 
+-->
+
+<dom-module id="moip-integration">
+    <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]</h2>
+  </template>
+
+    <script>
+        Polymer({
+
+            is: 'moip-integration',
+
+            properties: {
+                prop1: {
+                    type: String,
+                    value: 'moip-integration',
+                },
+            },
+
+        });
+    </script>
+</dom-module>
