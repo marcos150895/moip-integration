@@ -82,7 +82,7 @@
             </table>
             <paper-input always-float-label label="Total" readonly="readonly" id="total"></paper-input>
             <paper-input always-float-label label="Digite seu cupom" id="cupom" value=""></paper-input>
-            <paper-button id="criar_pedido" raised class="indigo">Criar Pedido</paper-button>
+            <paper-button id="criar_pedido" raised class="indigo" onclick=" carrinhoController.abrirPedido(event)">Criar Pedido</paper-button>
 
         </div>
     </div>
@@ -94,7 +94,6 @@
     <script>
         let carrinhoController = new CarrinhoController();
         carrinhoController.popularCarrinho();
-        carrinhoController.abrirPedido();
     </script>
 </body>
 

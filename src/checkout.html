@@ -65,39 +65,49 @@
                     <paper-input always-float-label label="Numero do Cartão" id="numero"></paper-input>
                     <paper-input always-float-label label="Nome impresso no cartão" id="nome_cartao"></paper-input>
                     <paper-dropdown-menu label="Validade ano">
-                        <paper-listbox class="dropdown-content" selected="1" id="validade_ano">
-                            <paper-item>2017</paper-item>
-                            <paper-item>2018</paper-item>
-                            <paper-item>2019</paper-item>
-                            <paper-item>2020</paper-item>
+                        <paper-listbox class="dropdown-content" id="validade_ano">
+                            <paper-item value="2017">2017</paper-item>
+                            <paper-item value="2017">2018</paper-item>
+                            <paper-item value="2017">2019</paper-item>
+                            <paper-item value="2017">2020</paper-item>
                         </paper-listbox>
                     </paper-dropdown-menu>
                     <paper-dropdown-menu label="Validade mês">
-                        <paper-listbox class="dropdown-content" selected="1">
-                            <paper-item>Janeiro</paper-item>
-                            <paper-item>fevereiro</paper-item>
-                            <paper-item>Março</paper-item>
-                            <paper-item>Abril</paper-item>
-                            <paper-item>maio</paper-item>
-                            <paper-item>Junho</paper-item>
-                            <paper-item>julho</paper-item>
-                            <paper-item>Agosto</paper-item>
-                            <paper-item>Setembro</paper-item>
-                            <paper-item>Outubro</paper-item>
-                            <paper-item>novembro</paper-item>
-                            <paper-item>Dezembro</paper-item>
+                        <paper-listbox class="dropdown-content" id="validade_mes">
+                            <paper-item value="1">Janeiro</paper-item>
+                            <paper-item value="2">fevereiro</paper-item>
+                            <paper-item value="3">Março</paper-item>
+                            <paper-item value="4">Abril</paper-item>
+                            <paper-item value="5">maio</paper-item>
+                            <paper-item value="6">Junho</paper-item>
+                            <paper-item value="7">julho</paper-item>
+                            <paper-item value="8">Agosto</paper-item>
+                            <paper-item value="9">Setembro</paper-item>
+                            <paper-item value="10">Outubro</paper-item>
+                            <paper-item value="11">novembro</paper-item>
+                            <paper-item value="12">Dezembro</paper-item>
                         </paper-listbox>
                     </paper-dropdown-menu>
-                    <label>Pedido</label>
+
                     <div>
-                        Descriação Total
+                        Descrição Total
                     </div>
                     <br>
-                    <paper-button id="criar_pedido " raised class="indigo">Criar Pedido</paper-button>
+                    <paper-button id="criar_pedido " raised class="indigo" onclick=" checkoutController.adicionar();">Criar Pedido</paper-button>
                 </div>
             </form>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../../JS/model/pedido.js"></script>
+    <script src="../../JS/model/item.js"></script>
+    <script src="../../JS/model/cliente.js"></script>
+    <script src="../../JS/model/pagamento.js"></script>
+    <script src="../../JS/model/cartao.js"></script>
+    <script src="../../JS/controller/checkoutController.js"></script>
+    <script>
+        let checkoutController = new CheckoutController();
+    </script>
 </body>
 
 </html>

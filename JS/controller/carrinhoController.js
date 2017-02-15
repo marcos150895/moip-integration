@@ -1,5 +1,7 @@
 class CarrinhoController {
-    constructor() {
+
+    constructor(numero, nome, validade) {
+
         console.log("crie um nova carrinho");
         let $ = document.querySelector.bind(document);
         this._inputNome = $("#nome");
@@ -65,60 +67,15 @@ class CarrinhoController {
         });
         let inputTotal = document.querySelector("#total");
         inputTotal.value = total;
+        this._inserirStorage("valorTotal", total);
 
     }
 
-    obterItemsMoip(cupom) {
-        var desconto = 0;
-        if (cupom == true) {
-            desconto = 5;
-        }
-
-        // não pode colocar um preço tip real como 3.4
-        let pedido = this._recuperarStorage("carrinho");
-        let pedidos = [];
-        pedido.forEach(function(item) {
-            let preco = item._valor * (1 - (desconto / 100));
-            console.log(preco);
-            var pedido = {
-                "product": item._nome,
-                "quantity": item._quantidade,
-                "detail": "  ",
-                "price": Math.round(preco)
-            };
-            pedidos.push(pedido);
-        });
-        return JSON.stringify(pedidos);
-    }
     abrirPedido() {
-        let cupom = document.querySelector("#cupom");
-        let pedido = "";
-        if (cupom.value == "") {
-            pedido = this.obterItemsMoip(false);
-        } else {
-            pedido = this.obterItemsMoip(true);
-        }
-        console.info("Abrindo pedido no moip");
-        $.ajax({
-            url: "https://sandbox.moip.com.br/v2/orders",
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader("Authorization", "Basic MDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDEwMTAxMDE6QUJBQkFCQUJBQkFCQUJBQkFCQUJBQkFCQUJBQkFCQUJBQkFCQUJBQg==");
-            },
-            type: 'POST',
-            dataType: 'json',
-            contentType: 'application/json',
-            processData: false,
-            data: '{ "ownId": "ludjinha_marcos",  "items": ' + pedido +
-                ', "customer": {"ownId": "Mingau_doce","fullname": "t-rex", "email": "joaosilva@email.com"}}',
-            success: function(data) {
-                var resposta = JSON.stringify(data);
-                console.info("Pedido Criado com Sucesso na moip");
-                //console.log(resposta);
-            },
-            error: function() {
-                console.error("Não foi possivel fazer essa requisição");
-            }
-        });
+
+        this._pedido.abrirPedidoMoip();
     }
+
+
 
 }
