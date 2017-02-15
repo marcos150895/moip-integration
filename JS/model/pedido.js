@@ -4,7 +4,7 @@ class Pedido {
         this._items = [];
     }
 
-    adiciona(item) {
+    adicionar(item) {
 
         this._items.push(item);
     }

@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>moip-integration</title>
+    <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+    <link rel="import" href="../../bower_components/paper-input/paper-input.html">
+    <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+    <link rel="import" href="../header.html">
+
+    <style>
+        paper-input {
+            max-width: 400px;
+        }
+        
+        paper-button.indigo {
+            margin-top: 30px;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            --paper-button-raised-keyboard-focus: {
+                background-color: var(--paper-pink-a200) !important;
+                color: black !important;
+            }
+            ;
+        }
+        
+        paper-button.indigo:hover {
+            background-color: blue;
+        }
+        
+        .container .informacao {
+            width: 100%;
+            position: absolute;
+            left: 50%;
+            top: 200px;
+            font-size: 1.2rem;
+        }
+        
+        .container .informacao label {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header-shop></header-shop>
+    <div class="container">
+        <div class="imagem">
+            <img src="https://www.gstatic.com/angular/material-adaptive/shrine/clock.png">
+        </div>
+        <div class="informacao">
+            <form id="form" onsubmit="carrinhoController.adiciona(event)">
+                <h3 id="nome">Relógio</h3>
+                <paper-input always-float-label label="Quantidade" id="quantidade" value="1"></paper-input>
+                <paper-input always-float-label label="valor" id="valor" value="50" readonly="readonly"></paper-input>
+                <label>Descrição</label>
+                <br>
+                <span>Rélogio para sua casa</span>
+                <br>
+                <paper-button id="adicionarCarinho" raised class="indigo" onclick="carrinhoController.adiciona(event)">Adicionar Carrinho</paper-button>
+            </form>
+        </div>
+    </div>
+    <script src="../../JS/model/pedido.js"></script>
+    <script src="../../JS/model/item.js"></script>
+    <script src="../../JS/model/cliente.js"></script>
+    <script src="../../JS/controller/carrinhoController.js"></script>
+
+    <script>
+        let carrinhoController = new CarrinhoController();
+    </script>
+</body>
+
+</html>

@@ -1,10 +1,9 @@
 class Item {
-    constructor(nome, valor, quantidade, imagem) {
+    constructor(nome, valor, quantidade) {
         this._nome = nome;
         this._valor = valor;
         this._quantidade = quantidade;
-        this._img = imagem;
-        Object.freeze(this);
+
     }
 
     get nome() {
@@ -22,8 +21,4 @@ class Item {
         return this._quantidade;
     }
 
-    get imagem() {
-
-        return this._img;
-    }
 }

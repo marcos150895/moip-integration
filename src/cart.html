@@ -64,7 +64,7 @@
             <h3>Meu Carrinho
                 <img src="https://cdn3.iconfinder.com/data/icons/glypho-money-and-finance/64/money-dollar-circle-512.png" style="width: 30px; height: 30px;">
             </h3>
-            <table class="table">
+            <table class="table" id="table">
                 <thead>
                     <tr>
                         <th>Produto</th>
@@ -74,21 +74,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Relogio</td>
-                        <td>99.00</td>
-                        <td>3</td>
-                        <td>297</td>
-                    </tr>
+
                 </tbody>
 
                 <tfoot>
                 </tfoot>
             </table>
-            <paper-input always-float-label label="Digite seu cupom"></paper-input>
+            <paper-input always-float-label label="Total" readonly="readonly" id="total"></paper-input>
+            <paper-input always-float-label label="Digite seu cupom" id="cupom" value=""></paper-input>
             <paper-button id="criar_pedido" raised class="indigo">Criar Pedido</paper-button>
+
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../../JS/model/pedido.js"></script>
+    <script src="../../JS/model/item.js"></script>
+    <script src="../../JS/model/cliente.js"></script>
+    <script src="../../JS/controller/carrinhoController.js"></script>
+    <script>
+        let carrinhoController = new CarrinhoController();
+        carrinhoController.popularCarrinho();
+        carrinhoController.abrirPedido();
+    </script>
 </body>
 
 </html>
