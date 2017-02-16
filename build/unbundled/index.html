@@ -1,0 +1,20 @@
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,user-scalable=yes">
+
+    <title>moip-integration</title>
+    <link rel="import" href="bower_components/iron-component-page/iron-component-page.html">
+    <link rel="import" href="bower_components/iron-component-page/iron-component-page.html">
+    <link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
+    <link rel="import" href="moip-integration.html">
+    <link rel="import" href="src/header.html">
+    <link rel="import" href="src/items.html">
+</head>
+
+<body>
+    <iron-ajax url="data/items.json" auto="" last-response="{{items}}"></iron-ajax>
+    <header-shop items="[[items]]"></header-shop>
+    <moip-items></moip-items>
+
+
+</body></html>

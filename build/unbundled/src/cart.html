@@ -1,0 +1,97 @@
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,user-scalable=yes">
+
+    <title>moip-integration</title>
+    <link rel="import" href="../bower_components/paper-button/paper-button.html">
+    <link rel="import" href="../bower_components/paper-input/paper-input.html">
+    <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+    <link rel="import" href="header.html">
+    <style>
+        .carrinho_container .carrinho h3 {
+            text-align: center;
+        }
+        
+        .table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        paper-input {
+            margin-top: 3%;
+            max-width: 200px;
+            margin: auto;
+        }
+        
+        .table tr,
+        td,
+        th {
+            text-align: center;
+            padding: 20px;
+            border-style: solid;
+            border-top-style: none;
+            border-right-style: none;
+            border-left-style: none;
+            border-bottom-color: black;
+        }
+        
+        paper-button.indigo {
+            margin-top: 3%;
+            padding: 10px;
+            left: 55%;
+            background-color: blue;
+            color: white;
+            --paper-button-raised-keyboard-focus: {
+                background-color: var(--paper-pink-a200) !important;
+                color: black !important;
+            }
+            ;
+        }
+        
+        paper-button.indigo:hover {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <header-shop></header-shop>
+    <div class="carrinho_container">
+        <div class="carrinho">
+            <h3>Meu Carrinho
+                <img src="https://cdn3.iconfinder.com/data/icons/glypho-money-and-finance/64/money-dollar-circle-512.png" style="width: 30px; height: 30px">
+            </h3>
+            <table class="table" id="table">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+
+                <tfoot>
+                </tfoot>
+            </table>
+            <paper-input always-float-label="" label="Total" readonly="readonly" id="total"></paper-input>
+            <paper-input always-float-label="" label="Digite seu cupom" id="cupom" value=""></paper-input>
+            <paper-button id="criar_pedido" raised="" class="indigo" onclick="carrinhoController.abrirPedido(event)">Criar Pedido</paper-button>
+
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../../JS/model/pedido.js"></script>
+    <script src="../../JS/model/item.js"></script>
+    <script src="../../JS/model/cliente.js"></script>
+    <script src="../../JS/controller/carrinhoController.js"></script>
+    <script>
+        let carrinhoController = new CarrinhoController();
+        carrinhoController.popularCarrinho();
+    </script>
+
+
+</body></html>

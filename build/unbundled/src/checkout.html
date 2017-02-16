@@ -1,0 +1,110 @@
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,user-scalable=yes">
+
+    <title>moip-integration</title>
+    <link rel="import" href="../bower_components/paper-button/paper-button.html">
+    <link rel="import" href="../bower_components/paper-input/paper-input.html">
+    <link rel="import" href="../bower_components/gold-email-input/gold-email-input.html">
+    <link rel="import" href="../bower_components/iron-component-page/iron-component-page.html">
+    <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+    <link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+    <link rel="import" href="../bower_components/paper-item/paper-item.html">
+    <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+    <link rel="import" href="../bower_components/gold-cc-cvc-input/gold-cc-cvc-input.html">
+    <link rel="import" href="header.html">
+    <style>
+        .carrinho_container .carrinho h3 {
+            text-align: center;
+        }
+        
+        .carrinho_container .carrinho .direita {
+            position: absolute;
+            left: 40%;
+            top: 200px;
+        }
+        
+        paper-input {
+            max-width: 300px;
+            margin-left: 50px;
+        }
+        
+        .carrinho_container .carrinho label {
+            margin-top: 3%;
+            max-width: 300px;
+            margin-left: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header-shop></header-shop>
+    <div class="carrinho_container">
+        <div class="carrinho">
+            <form>
+                <h3>Shopping com integração moip - seu pagamento com segurança
+                </h3>
+                <div class="esquerda">
+                    <label>Informação da conta</label>
+                    <paper-input always-float-label="" label="Nome" id="nome"></paper-input>
+                    <paper-input always-float-label="" label="Email" id="email"></paper-input>
+                    <paper-input always-float-label="" label="Telefone" id="telefone"></paper-input>
+                    <br>
+                    <label>Endereço de entrega</label>
+                    <paper-input always-float-label="" label="Endereço" id="endereco"></paper-input>
+                    <paper-input always-float-label="" label="Cidade" id="cidade"></paper-input>
+                    <paper-input always-float-label="" label="CEP" id="cep"></paper-input>
+                </div>
+                <div class="direita">
+                    <label>Forma de Pagamento</label>
+                    <paper-input always-float-label="" label="Numero do Cartão" id="numero"></paper-input>
+                    <paper-input always-float-label="" label="Nome impresso no cartão" id="nome_cartao"></paper-input>
+                    <paper-dropdown-menu label="Validade ano">
+                        <paper-listbox class="dropdown-content" id="validade_ano">
+                            <paper-item value="2017">2017</paper-item>
+                            <paper-item value="2017">2018</paper-item>
+                            <paper-item value="2017">2019</paper-item>
+                            <paper-item value="2017">2020</paper-item>
+                        </paper-listbox>
+                    </paper-dropdown-menu>
+                    <paper-dropdown-menu label="Validade mês">
+                        <paper-listbox class="dropdown-content" id="validade_mes">
+                            <paper-item value="1">Janeiro</paper-item>
+                            <paper-item value="2">fevereiro</paper-item>
+                            <paper-item value="3">Março</paper-item>
+                            <paper-item value="4">Abril</paper-item>
+                            <paper-item value="5">maio</paper-item>
+                            <paper-item value="6">Junho</paper-item>
+                            <paper-item value="7">julho</paper-item>
+                            <paper-item value="8">Agosto</paper-item>
+                            <paper-item value="9">Setembro</paper-item>
+                            <paper-item value="10">Outubro</paper-item>
+                            <paper-item value="11">novembro</paper-item>
+                            <paper-item value="12">Dezembro</paper-item>
+                        </paper-listbox>
+                    </paper-dropdown-menu>
+
+                    <div>
+                        Descrição Total
+                    </div>
+                    <br>
+                    <paper-button id="criar_pedido " raised="" class="indigo" onclick="checkoutController.adicionar();">Criar Pedido</paper-button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../../JS/model/pedido.js"></script>
+    <script src="../../JS/model/item.js"></script>
+    <script src="../../JS/model/cliente.js"></script>
+    <script src="../../JS/model/pagamento.js"></script>
+    <script src="../../JS/model/cartao.js"></script>
+    <script src="../../JS/controller/checkoutController.js"></script>
+    <script>
+        let checkoutController = new CheckoutController();
+    </script>
+
+
+</body></html>

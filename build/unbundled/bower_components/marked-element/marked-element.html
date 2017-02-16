@@ -1,0 +1,24 @@
+<html><head><link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="marked-import.html">
+
+
+</head><body><dom-module id="marked-element">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      /* Thanks IE 10. */
+      .hidden {
+        display: none !important;
+      }
+    </style>
+    <content select=".markdown-html"></content>
+    <div id="content" class="hidden"></div>
+  </template>
+
+</dom-module>
+
+<script>"use strict";Polymer({is:"marked-element",properties:{markdown:{observer:"render",type:String,value:null},pedantic:{observer:"render",type:Boolean,value:!1},renderer:{observer:"render",type:Function,value:null},sanitize:{observer:"render",type:Boolean,value:!1},smartypants:{observer:"render",type:Boolean,value:!1},callback:{observer:"render",type:Function,value:null}},ready:function(){if(!this.markdown){var e=Polymer.dom(this).querySelector('[type^="text/markdown"]');null!=e&&(this.markdown=this._unindent(e.textContent))}},attached:function(){this._attached=!0,this._outputElement=this.outputElement,this.render()},detached:function(){this._attached=!1},unindent:function(e){return this._unindent(e)},get outputElement(){var e=Polymer.dom(this).queryDistributedElements(".markdown-html")[0];return e?e:(this.toggleClass("hidden",!1,this.$.content),this.$.content)},render:function(){if(this._attached){if(!this.markdown)return void(Polymer.dom(this._outputElement).innerHTML="");var e=new marked.Renderer;this.renderer&&this.renderer(e);var t={renderer:e,highlight:this._highlight.bind(this),sanitize:this.sanitize,pedantic:this.pedantic,smartypants:this.smartypants};Polymer.dom(this._outputElement).innerHTML=marked(this.markdown,t,this.callback),this.fire("marked-render-complete")}},_highlight:function(e,t){var n=this.fire("syntax-highlight",{code:e,lang:t});return n.detail.code||e},_unindent:function(e){if(!e)return e;var t=e.replace(/\t/g,"  ").split("\n"),n=t.reduce(function(e,t){if(/^\s*$/.test(t))return e;var n=t.match(/^(\s*)/)[0].length;return null===e?n:n<e?n:e},null);return t.map(function(e){return e.substr(n)}).join("\n")}});</script>
+</body></html>

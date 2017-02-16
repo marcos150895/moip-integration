@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "yes": "moip-test",
+    "default": "moip-test"
+  }
+}
